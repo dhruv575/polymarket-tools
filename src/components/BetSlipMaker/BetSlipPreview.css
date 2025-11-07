@@ -1,0 +1,222 @@
+.bet-slip-preview-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bet-slip-background {
+  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #6366f1 100%);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  min-height: 600px;
+}
+
+.polymarket-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.polymarket-logo-slip {
+  height: 32px;
+  filter: brightness(0) invert(1);
+}
+
+.bet-slip-card-poly {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.slip-card-content {
+  padding: 32px;
+}
+
+.slip-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.slip-title-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slip-market-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.slip-image-placeholder {
+  width: 80px;
+  height: 80px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.slip-trade-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.slip-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #d1d5db 0px,
+    #d1d5db 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.divider-logo {
+  height: 32px;
+  opacity: 0.3;
+}
+
+.slip-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-row.payout-row {
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #6B7280;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.stat-payout {
+  font-size: 24px;
+  font-weight: 700;
+  color: #10B981;
+}
+
+.slip-wave-footer {
+  height: 30px;
+  width: 100%;
+}
+
+.slip-wave-footer svg {
+  width: 100%;
+  height: 100%;
+}
+
+.polymarket-tagline {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.slip-watermark-poly {
+  position: absolute;
+  bottom: 20px;
+  right: 48px;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .bet-slip-background {
+    padding: 24px;
+    min-height: 500px;
+  }
+
+  .polymarket-logo-slip {
+    height: 24px;
+  }
+
+  .polymarket-text {
+    font-size: 22px;
+  }
+
+  .polymarket-header {
+    margin-bottom: 24px;
+  }
+
+  .slip-card-content {
+    padding: 24px;
+  }
+
+  .slip-market-title {
+    font-size: 22px;
+  }
+
+  .slip-image-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+
+  .slip-trade-badge {
+    font-size: 16px;
+  }
+
+  .divider-logo {
+    height: 24px;
+  }
+
+  .stat-label,
+  .stat-value {
+    font-size: 14px;
+  }
+
+  .stat-payout {
+    font-size: 20px;
+  }
+
+  .polymarket-tagline {
+    font-size: 16px;
+    margin-top: 24px;
+  }
+
+  .slip-watermark-poly {
+    bottom: 16px;
+    right: 24px;
+  }
+}
