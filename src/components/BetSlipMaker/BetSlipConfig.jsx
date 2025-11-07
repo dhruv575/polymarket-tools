@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './BetSlipConfig.css';
 
 const BetSlipConfig = ({
@@ -11,6 +11,7 @@ const BetSlipConfig = ({
   expectedPayout,
   showWatermark,
   isExporting,
+  uploadedImage,
   onSlipTypeChange,
   onMarketNameChange,
   onOutcomeChange,
@@ -18,10 +19,43 @@ const BetSlipConfig = ({
   onWagerAmountChange,
   onOddsChange,
   onShowWatermarkChange,
+  onImageUpload,
   onExportPNG,
   onCopyToClipboard,
   onBack,
 }) => {
+  const fileInputRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      onImageUpload(file);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      onImageUpload(file);
+    }
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
   return (
     <div className="bet-slip-config">
       <div className="config-header">
@@ -95,9 +129,28 @@ const BetSlipConfig = ({
       <div className="config-section">
         <label className="config-label">IMAGE (OPTIONAL)</label>
         <div className="image-upload">
-          <div className="upload-box">
-            <span className="upload-icon">📷</span>
-            <span className="upload-text">CLICK TO UPLOAD OR DRAG & DROP</span>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/jpg"
+            onChange={handleFileSelect}
+            style={{ display: 'none' }}
+          />
+          <div 
+            className={`upload-box ${isDragging ? 'dragging' : ''} ${uploadedImage ? 'has-image' : ''}`}
+            onClick={handleUploadClick}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+          >
+            {uploadedImage ? (
+              <img src={uploadedImage} alt="Uploaded" className="uploaded-image-preview" />
+            ) : (
+              <>
+                <span className="upload-icon">📷</span>
+                <span className="upload-text">CLICK TO UPLOAD OR DRAG & DROP</span>
+              </>
+            )}
           </div>
           <p className="upload-hint">Supports JPG, PNG formats. Or press Ctrl+V to paste.</p>
         </div>

@@ -66,6 +66,14 @@
   flex-shrink: 0;
 }
 
+.slip-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
 .slip-trade-badge {
   display: inline-block;
   padding: 8px 16px;

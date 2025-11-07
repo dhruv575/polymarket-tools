@@ -2,7 +2,7 @@ import React from 'react';
 import polymarketLogo from '../../polymarket_logo.png';
 import './BetSlipPreview.css';
 
-const BetSlipPreview = ({ marketName, tradeSide, wagerAmount, odds, expectedPayout, showWatermark }) => {
+const BetSlipPreview = ({ marketName, tradeSide, wagerAmount, odds, expectedPayout, showWatermark, uploadedImage }) => {
   const tradeSideText = tradeSide === 'yes' ? 'Yes' : 'No';
   const tradeSideColor = tradeSide === 'yes' ? '#10B981' : '#EF4444';
   
@@ -32,7 +32,11 @@ const BetSlipPreview = ({ marketName, tradeSide, wagerAmount, odds, expectedPayo
                   {tradeSideText}
                 </div>
               </div>
-              <div className="slip-image-placeholder"></div>
+              {uploadedImage ? (
+                <img src={uploadedImage} alt="Market" className="slip-image" />
+              ) : (
+                <div className="slip-image-placeholder"></div>
+              )}
             </div>
 
             <div className="slip-divider">
